@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water drink reminder</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+</head>
+<body>
+<div class="wrap" style="text-align: center;color: aliceblue;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-tap-highlight-color: transparent;">
+  <h1>Drink water reminder</h1>
+<img width="323px" src="./glass-of-water.png" alt="">
+
+
+    <button class="request-button">Continue</button>
+  
+
+  </div>
+<p id="demo"></p>
+
+<script>
+const element = document.getElementById("demo");
+setTimeout(function() {element.innerHTML += "Drink water"   
+ Push.create("Water Drinking reminder", {
+        body: "Time to drink water !!!",
+        icon: "/glass-of-water.png",
+        timeout: 1,
+        onClick: function() {
+            console.log(this);
+        }
+    });},10800000 );
+const requestButton = document.querySelector(".request-button");
+const showButton = document.querySelector(".show-button");
+
+function onGranted() {
+    requestButton.style.background = "green";
+}
+
+function onDenied() {
+    requestButton.style.background = "red";
+}
+
+requestButton.onclick = function() {
+    Push.Permission.request(onGranted, onDenied);
+    window.location.href="real.html"
+}
+
+showButton.onclick = function() {
+
+};
+</script>
+
+</body>
+</html>
+
+   <style>
+    body{
+      background-color: #1A1A1A;
+    }
+    .request-button{
+  
+
+
+
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+    }
+
+.request-button:disabled {
+  pointer-events: none;
+}
+
+.request-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.request-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.request-button{
+  
+
+
+
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+    }
+
+.show-button:disabled {
+  pointer-events: none;
+}
+
+.show-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.show-button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+   </style>
+
+</body>
+</html>
